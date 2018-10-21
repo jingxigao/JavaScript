@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn{
+            width:140px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #ee4400;
+            color: #00f;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .lock{
+            width:140px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #ee4400;
+            color: #00f;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .unlock{
+            width:140px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #000;
+            color: #fff;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="弹出" onclick="alert('我是按钮')">
+<!--鼠标划过时调用函数-->
+<div id="btn" class="btn" onmouseover="mouseoverFunc(this)" onmouseout="mouseoutFunc()">开始</div>
+
+<div class="lock" id="btn2">锁定</div>
+
+<script>
+    //1.HTML事件  多次绑定事件
+    function mouseoverFunc(btn) {
+        //鼠标划过按钮时，按钮背景变化
+        // document.getElementById()
+        // btn.style(colors,"green");
+        btn.style.color="green";
+    }
+    function mouseoutFunc() {
+        btn.style.color="blue";
+    }
+    //dom零级事件 通过改变class改变样式
+    //获取按钮
+    var lock=document.getElementById('btn2');
+    //给按钮绑定事件,this是对dom元素的引用
+    lock.onclick=function () {
+        //判断如果按钮为锁定，变为解锁
+        if(this.className=="lock"){
+            this.className="unlock";
+            this.innerHTML="解锁";
+        }
+        else{
+            this.className="lock";
+            this.innerHTML="锁定";
+        }
+        //否则，显示为锁定
+    }
+</script>
+
+
+</body>
+</html>
