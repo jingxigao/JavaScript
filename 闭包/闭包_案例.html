@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点赞页面</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 180px;
+        }
+
+        input {
+            margin-left: 30%;
+        }
+    </style>
+
+</head>
+<body>
+<ul>
+    <li><img src="images/1.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+    <li><img src="images/2.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+    <li><img src="images/3.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+    <li><img src="images/4.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+</ul>
+<script>
+    // var btns=document.getElementsByTagName('input');
+    // var value=1;
+    // for(var i=0;i<btns.length;i++){
+    //     btns[i].onclick=function (ev) {
+    //         this.value='赞('+(value++)+')';
+    //     }
+    // }
+
+    //闭包
+    var btns=document.getElementsByTagName('input');
+    function getValue() {
+        var value=1;
+        return function () {
+            value++;
+            this.value='赞('+(value)+')';
+        }
+    }
+    for(var i=0;i<btns.length;i++){
+        btns[i].onclick=getValue();
+    }
+
+</script>
+</body>
+</html>
